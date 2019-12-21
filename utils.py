@@ -86,7 +86,6 @@ def screenProcessing(front_img, background_img, hsv_lower, hsv_upper):
     inversed_mask = cv2.bitwise_not(mask)
     
     cropped_background_img = background_img[0:front_img.shape[0], 0:front_img.shape[1]]
-    print(front_img.shape[0], front_img.shape[1])
     inverse_mask_cropped_background = cv2.bitwise_and(cropped_background_img, cropped_background_img, mask=inversed_mask)
     mask_front = cv2.bitwise_and(front_img, front_img, mask=mask)
     result = mask_front + inverse_mask_cropped_background
